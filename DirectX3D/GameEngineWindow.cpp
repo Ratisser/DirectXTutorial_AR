@@ -14,13 +14,20 @@ LRESULT WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		break;;
 	case WM_CREATE:
 		break;
+	case WM_PAINT:
+	{
+		PAINTSTRUCT ps;
+		HDC hdc = BeginPaint(hWnd, &ps);
+		EndPaint(hWnd, &ps);
+	}
+	break;
 	case WM_QUIT:
 		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
 	default:
-		DefWindowProc(hWnd, message, wParam, lParam);
+		return DefWindowProc(hWnd, message, wParam, lParam);
 		break;
 	}
 	return DefWindowProc(hWnd, message, wParam, lParam);
@@ -86,7 +93,7 @@ int GameEngineWindow::registerWindowClass()
 	wcex.cbWndExtra = 0;
 	wcex.hInstance = nullptr;
 	wcex.hIcon = nullptr;
-	wcex.hCursor = nullptr;
+	wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
 	wcex.hbrBackground = nullptr;
 	wcex.lpszMenuName = NULL;
 	wcex.lpszClassName = windowClassName_.c_str();
@@ -97,7 +104,7 @@ int GameEngineWindow::registerWindowClass()
 int GameEngineWindow::createWindow()
 {
 	hWnd_ = CreateWindowExA(0, windowClassName_.c_str(), windowCaption_.c_str(),
-		WS_POPUPWINDOW,
+		WS_OVERLAPPEDWINDOW,
 		windowPosition_.ix(), windowPosition_.iy(),
 		windowSize_.ix(), windowSize_.iy(),
 		nullptr, nullptr, nullptr, nullptr);
@@ -109,7 +116,7 @@ int GameEngineWindow::createWindow()
 
 	RECT Rc = { 0, 0, windowSize_.ix(), windowSize_.iy() };
 	// 내가 넣어준 렉트에 타이틀바와 메뉴등의 사이즈가 들어간 녀석으로 만들어주세요.
-	AdjustWindowRect(&Rc, WS_POPUPWINDOW, false);
+	AdjustWindowRect(&Rc, WS_OVERLAPPEDWINDOW, false);
 
 	// 0넣으면 그냥 보통 기본이다.
 	SetWindowPos(hWnd_, nullptr, windowPosition_.ix(), windowPosition_.iy(), Rc.right - Rc.left, Rc.bottom - Rc.top, 0);
