@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="GameEngineWindow.cpp" />
+    <ClCompile Include="GameEngineMath.cpp" />
+    <ClCompile Include="GameEngineDevice.cpp" />
+    <ClCompile Include="GameEngineCore.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameEngineWindow.h" />
+    <ClInclude Include="GameEngineMath.h" />
+    <ClInclude Include="GameEngineDevice.h" />
+    <ClInclude Include="Macro.h" />
+    <ClInclude Include="GameEngineCore.h" />
+  </ItemGroup>
+</Project>
