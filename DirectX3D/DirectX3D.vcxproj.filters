@@ -2,16 +2,58 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="GameEngineWindow.cpp" />
-    <ClCompile Include="GameEngineMath.cpp" />
-    <ClCompile Include="GameEngineDevice.cpp" />
     <ClCompile Include="GameEngineCore.cpp" />
+    <ClCompile Include="GameEngineMath.cpp">
+      <Filter>99.Math</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineDevice.cpp">
+      <Filter>00.System</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEngineWindow.cpp">
+      <Filter>00.System</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameEngineWindow.h" />
-    <ClInclude Include="GameEngineMath.h" />
-    <ClInclude Include="GameEngineDevice.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="GameEngineCore.h" />
+    <ClInclude Include="GameEngineMath.h">
+      <Filter>99.Math</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineDevice.h">
+      <Filter>00.System</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngineWindow.h">
+      <Filter>00.System</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ShaderFiles">
+      <UniqueIdentifier>{74f56bc6-9151-493e-910f-b7c060808ccd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.System">
+      <UniqueIdentifier>{2e8f3fa3-057f-42af-839c-b3ecdf037b73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.RenderingPipeLine">
+      <UniqueIdentifier>{927fa0d4-8bf6-4e19-80f6-3b896b3af406}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.RenderingPipeLine\Buffer">
+      <UniqueIdentifier>{2a4d7a07-5770-47c5-9acc-1afa7fd09cac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.RenderingPipeLine\Shader">
+      <UniqueIdentifier>{72e48967-1bc6-4d9b-abbb-bea0ea6cb42d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99.Math">
+      <UniqueIdentifier>{5cc285b2-3dda-4da7-a073-b2b0725b56bc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="TestShader.fx">
+      <Filter>ShaderFiles</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader.fx">
+      <Filter>ShaderFiles</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

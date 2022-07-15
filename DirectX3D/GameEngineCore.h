@@ -4,6 +4,8 @@
 
 #include <memory>
 
+#include "Object.hpp"
+
 class GameEngineCore
 {
 public:
@@ -16,6 +18,7 @@ public:
 	void Initialize(std::string _windowCaption, std::string _windowClassName, float4 _windowPosition, float4 _windowSize);
 	void Run();
 	
+	void DrawObject();
 
 public:
 	GameEngineWindow* GetWindow() { return window_.get(); }
@@ -28,5 +31,7 @@ private:
 private:
 	std::unique_ptr<GameEngineWindow> window_;
 	std::unique_ptr<GameEngineDevice> device_;
+
+	Object tempObject_;
 };
 

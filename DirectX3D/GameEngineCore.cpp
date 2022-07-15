@@ -21,14 +21,25 @@ void GameEngineCore::Initialize(std::string _windowCaption, std::string _windowC
 
 void GameEngineCore::Run()
 {
-	window_->Run(&GameEngineCore::GameLoop);
+	tempObject_.Init(device_.get());
 
+	window_->Run(&GameEngineCore::GameLoop);
 	release();
+}
+
+void GameEngineCore::DrawObject()
+{
+	tempObject_.Draw(device_.get());
 }
 
 void GameEngineCore::GameLoop()
 {
-	GameEngineCore::GetInstance()->device_->Render();
+
+	GameEngineCore::GetInstance()->device_->RenderStart();
+
+	GameEngineCore::GetInstance()->DrawObject();
+
+	GameEngineCore::GetInstance()->device_->RenderEnd();
 }
 
 void GameEngineCore::release()

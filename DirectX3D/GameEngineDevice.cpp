@@ -1,5 +1,10 @@
 #include "GameEngineDevice.h"
 
+#include <d3dcompiler.h>
+#include "Object.hpp"
+
+#pragma comment(lib, "d3dcompiler.lib")
+
 GameEngineDevice::GameEngineDevice()
 	: device_(nullptr)
 	, deviceContext_(nullptr)
@@ -104,20 +109,55 @@ bool GameEngineDevice::InitializeDevice(HWND _hWnd, float4 _size)
 	vp.TopLeftY = 0;
 	deviceContext_->RSSetViewports(1, &vp);
 
-	return true;;
+	// 셰이더
+
+	
+
+	// 바이트파일 컴파일?
+	hr = D3DCompileFromFile(L"Shader.fx", nullptr, nullptr, "VS", "vs_5_0", D3DCOMPILE_PACK_MATRIX_ROW_MAJOR, 0, &vsBlob_, nullptr);
+	if (FAILED(hr))
+	{
+		assert(false);
+	}
+
+	device_->CreateVertexShader(vsBlob_->GetBufferPointer(), vsBlob_->GetBufferSize(), nullptr, &vs_);
+
+
+	hr = D3DCompileFromFile(L"Shader.fx", nullptr, nullptr, "PS", "ps_5_0", D3DCOMPILE_PACK_MATRIX_ROW_MAJOR, 0, &psBlob_, nullptr);
+	if (FAILED(hr))
+	{
+		assert(false, "Failed Create VertexShader");
+	}
+
+	device_->CreatePixelShader(psBlob_->GetBufferPointer(), psBlob_->GetBufferSize(), nullptr, &ps_);
+
+
+	return true;
 }
 
-void GameEngineDevice::Render()
+void GameEngineDevice::RenderStart()
 {
 	deviceContext_->OMSetRenderTargets(1, &backBufferTarget_, nullptr);
 
 	deviceContext_->ClearRenderTargetView(backBufferTarget_, reinterpret_cast<const float*>(&CLEAR_COLOR));
+}
 
+void GameEngineDevice::RenderEnd()
+{
 	swapChain_->Present(0, 0);
 }
 
 void GameEngineDevice::Release()
 {
+	vsBlob_->Release();
+	vsBlob_ = nullptr;
+
+	psBlob_->Release();
+	psBlob_ = nullptr;
+
+	vs_->Release();
+	ps_->Release();
+
 	if (nullptr != backBufferTarget_)
 	{
 		backBufferTarget_->Release();
