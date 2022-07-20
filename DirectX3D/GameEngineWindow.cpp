@@ -115,10 +115,8 @@ int GameEngineWindow::createWindow()
 	}
 
 	RECT Rc = { 0, 0, windowSize_.ix(), windowSize_.iy() };
-	// 내가 넣어준 렉트에 타이틀바와 메뉴등의 사이즈가 들어간 녀석으로 만들어주세요.
 	AdjustWindowRect(&Rc, WS_OVERLAPPEDWINDOW, false);
 
-	// 0넣으면 그냥 보통 기본이다.
 	SetWindowPos(hWnd_, nullptr, windowPosition_.ix(), windowPosition_.iy(), Rc.right - Rc.left, Rc.bottom - Rc.top, 0);
 
 	ShowWindow(hWnd_, SW_SHOW);

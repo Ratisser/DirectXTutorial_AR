@@ -24,11 +24,6 @@ public:
 		indices_.push_back(1);
 		indices_.push_back(2);
 
-
-
-
-
-
 	}
 	~Object()
 	{
@@ -101,10 +96,8 @@ typedef struct D3D11_INPUT_ELEMENT_DESC {
 		UINT offset = 0;
 		_device->GetContext()->IASetInputLayout(inputLayout_);
 		_device->GetContext()->IASetVertexBuffers(0, 1, &vertexBuffer_, &stride, &offset);
-		_device->GetContext()->IASetIndexBuffer(indexBuffer_, DXGI_FORMAT_R32_SINT, 0);
+		_device->GetContext()->IASetIndexBuffer(indexBuffer_, DXGI_FORMAT_R32_UINT, 0);
 		_device->GetContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-
-		
 
 
 		context->VSSetShader(_device->vs_, nullptr, 0);
@@ -118,7 +111,7 @@ typedef struct D3D11_INPUT_ELEMENT_DESC {
 
 private:
 	std::vector<CustomVertex> vertices_;
-	std::vector<int> indices_;
+	std::vector<unsigned int> indices_;
 
 
 	ID3D11Buffer* vertexBuffer_;

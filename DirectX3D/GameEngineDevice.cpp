@@ -131,6 +131,7 @@ bool GameEngineDevice::InitializeDevice(HWND _hWnd, float4 _size)
 
 	device_->CreatePixelShader(psBlob_->GetBufferPointer(), psBlob_->GetBufferSize(), nullptr, &ps_);
 
+	deviceContext_->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	return true;
 }
@@ -145,6 +146,7 @@ void GameEngineDevice::RenderStart()
 void GameEngineDevice::RenderEnd()
 {
 	swapChain_->Present(0, 0);
+
 }
 
 void GameEngineDevice::Release()
