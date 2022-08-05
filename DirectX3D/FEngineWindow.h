@@ -2,16 +2,16 @@
 
 #include <Windows.h>
 #include <string>
-#include "GameEngineMath.h"
+#include <EngineBase\FMath.h>
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 
-class GameEngineWindow
+class FEngineWindow
 {
 public:
-	GameEngineWindow();
-	~GameEngineWindow();
+	FEngineWindow();
+	~FEngineWindow();
 
 public:
 	//static GameEngineWindow* GetInstance() { static GameEngineWindow intstance; return &intstance; }

@@ -6,15 +6,15 @@
 #include <d3d11_4.h>
 #include <d3dcompiler.h>
 
-#include "GameEngineMath.h"
+#include <EngineBase\FMath.h>
 
 #pragma comment(lib, "D3D11.lib")
 
-class GameEngineDevice
+class FGraphicDevice
 {
 public:
-	GameEngineDevice();
-	~GameEngineDevice();
+	FGraphicDevice();
+	~FGraphicDevice();
 
 public:
 	//static GameEngineDevice* GetInstance() { static GameEngineDevice instance; return &instance; }

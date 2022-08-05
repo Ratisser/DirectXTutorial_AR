@@ -1,10 +1,11 @@
-#include "GameEngineMath.h"
+#include "PreCompile.h"
+#include "FMath.h"
 
 // Static Var
-const float GameEngineMath::PI = 3.14159265359f;
-const float GameEngineMath::PI2 = 3.14159265359f * 2;
-const float GameEngineMath::DegreeToRadian = GameEngineMath::PI / 180.0f;
-const float GameEngineMath::RadianToDegree = 180.0f / GameEngineMath::PI;
+const float FMath::PI = 3.14159265359f;
+const float FMath::PI2 = 3.14159265359f * 2;
+const float FMath::DegreeToRadian = FMath::PI / 180.0f;
+const float FMath::RadianToDegree = 180.0f / FMath::PI;
 
 const float4 float4::ZERO = { 0.0f, 0.0f, 0.0f, 1.0f };
 const float4 float4::ONE = { 1.0f, 1.0f, 1.0f, 1.0f };

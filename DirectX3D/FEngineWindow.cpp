@@ -1,4 +1,4 @@
-#include "GameEngineWindow.h"
+#include "FEngineWindow.h"
 
 #include <cassert>
 
@@ -33,17 +33,17 @@ LRESULT WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
-GameEngineWindow::GameEngineWindow()
+FEngineWindow::FEngineWindow()
 	: hInstance_(nullptr)
 	, hWnd_(nullptr)
 {
 }
 
-GameEngineWindow::~GameEngineWindow()
+FEngineWindow::~FEngineWindow()
 {
 }
 
-void GameEngineWindow::Initialize(std::string _windowCaption, std::string _windowClassName, float4 _windowPosition, float4 _windowSize)
+void FEngineWindow::Initialize(std::string _windowCaption, std::string _windowClassName, float4 _windowPosition, float4 _windowSize)
 {
 	windowCaption_ = _windowCaption;
 	windowClassName_ = _windowClassName;
@@ -63,7 +63,7 @@ void GameEngineWindow::Initialize(std::string _windowCaption, std::string _windo
 
 }
 
-void GameEngineWindow::Run(void(*_callback)())
+void FEngineWindow::Run(void(*_callback)())
 {
 	MSG msg = { 0 };
 	while (WM_QUIT != msg.message)
@@ -83,7 +83,7 @@ void GameEngineWindow::Run(void(*_callback)())
 	}
 }
 
-int GameEngineWindow::registerWindowClass()
+int FEngineWindow::registerWindowClass()
 {
 	WNDCLASSEXA wcex;
 	wcex.cbSize = sizeof(WNDCLASSEX);
@@ -101,7 +101,7 @@ int GameEngineWindow::registerWindowClass()
 	return !RegisterClassExA(&wcex);
 }
 
-int GameEngineWindow::createWindow()
+int FEngineWindow::createWindow()
 {
 	hWnd_ = CreateWindowExA(0, windowClassName_.c_str(), windowCaption_.c_str(),
 		WS_OVERLAPPEDWINDOW,

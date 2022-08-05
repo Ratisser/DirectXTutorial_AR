@@ -3,83 +3,80 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
-    <ClCompile Include="GameEngineMath.cpp">
-      <Filter>00.Base</Filter>
+    <ClCompile Include="FGraphicDevice.cpp">
+      <Filter>01.Engine\01.Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineWindow.cpp">
-      <Filter>01.Engine\Window</Filter>
+    <ClCompile Include="FEngineCore.cpp">
+      <Filter>01.Engine\00.Core</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineDevice.cpp">
-      <Filter>01.Engine\Graphics</Filter>
+    <ClCompile Include="ULevel.cpp">
+      <Filter>01.Engine\02.GameObject\Level</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineCore.cpp">
-      <Filter>01.Engine\Core</Filter>
+    <ClCompile Include="UActor.cpp">
+      <Filter>01.Engine\02.GameObject\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineLevel.cpp">
-      <Filter>01.Engine\GameObject\Level</Filter>
+    <ClCompile Include="UObject.cpp">
+      <Filter>01.Engine\02.GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="GameEngineActor.cpp">
-      <Filter>01.Engine\GameObject\Actor</Filter>
+    <ClCompile Include="UComponent.cpp">
+      <Filter>01.Engine\02.GameObject\Component</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>01.Engine\GameObject</Filter>
+    <ClCompile Include="FEngineWindow.cpp">
+      <Filter>01.Engine\00.Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macro.h" />
     <ClInclude Include="Object.hpp" />
-    <ClInclude Include="GameEngineMath.h">
-      <Filter>00.Base</Filter>
+    <ClInclude Include="FGraphicDevice.h">
+      <Filter>01.Engine\01.Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineWindow.h">
-      <Filter>01.Engine\Window</Filter>
+    <ClInclude Include="FEngineCore.h">
+      <Filter>01.Engine\00.Core</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineDevice.h">
-      <Filter>01.Engine\Graphics</Filter>
+    <ClInclude Include="ULevel.h">
+      <Filter>01.Engine\02.GameObject\Level</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineCore.h">
-      <Filter>01.Engine\Core</Filter>
+    <ClInclude Include="UActor.h">
+      <Filter>01.Engine\02.GameObject\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineLevel.h">
-      <Filter>01.Engine\GameObject\Level</Filter>
+    <ClInclude Include="UObject.h">
+      <Filter>01.Engine\02.GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="GameEngineActor.h">
-      <Filter>01.Engine\GameObject\Actor</Filter>
+    <ClInclude Include="UComponent.h">
+      <Filter>01.Engine\02.GameObject\Component</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>01.Engine\GameObject</Filter>
+    <ClInclude Include="FEngineWindow.h">
+      <Filter>01.Engine\00.Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="00.Base">
-      <UniqueIdentifier>{a18302ed-5330-4bbb-9887-2d48f7ccd580}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01.Engine">
       <UniqueIdentifier>{ed6a8eb1-67d9-4ab7-9cbe-7124e30e45ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Engine\00.Core">
+      <UniqueIdentifier>{6c05bf96-faaa-4cd2-a40e-bc0939eec5e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Engine\01.Graphics">
+      <UniqueIdentifier>{a3f7f621-cc5f-4c7c-94bc-bd0ee2a57930}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Engine\02.GameObject">
+      <UniqueIdentifier>{885f0a65-69e5-4baa-a788-1a6f11e3447e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Engine\02.GameObject\Level">
+      <UniqueIdentifier>{27362445-0d71-494c-aaa6-d5d9eded6421}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Engine\02.GameObject\Component">
+      <UniqueIdentifier>{f055ce18-0668-42d5-b8de-e72c57a0267b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.Engine\02.GameObject\Actor">
+      <UniqueIdentifier>{a2d1b689-365e-44a6-8792-665e80c793c8}</UniqueIdentifier>
     </Filter>
     <Filter Include="02.Resource">
       <UniqueIdentifier>{928db89c-a817-453b-b6ae-17835c0c50a1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01.Engine\Graphics">
-      <UniqueIdentifier>{a3f7f621-cc5f-4c7c-94bc-bd0ee2a57930}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Engine\Window">
-      <UniqueIdentifier>{4536c447-cfdd-40c0-9685-b4744a20fd9a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Engine\Core">
-      <UniqueIdentifier>{6c05bf96-faaa-4cd2-a40e-bc0939eec5e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Engine\GameObject">
-      <UniqueIdentifier>{885f0a65-69e5-4baa-a788-1a6f11e3447e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Engine\GameObject\Level">
-      <UniqueIdentifier>{27362445-0d71-494c-aaa6-d5d9eded6421}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Engine\GameObject\Component">
-      <UniqueIdentifier>{f055ce18-0668-42d5-b8de-e72c57a0267b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.Engine\GameObject\Actor">
-      <UniqueIdentifier>{a2d1b689-365e-44a6-8792-665e80c793c8}</UniqueIdentifier>
+    <Filter Include="02.Resource\GraphicResource">
+      <UniqueIdentifier>{2a4460ed-63be-4674-b3e2-0b83fe13ed08}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

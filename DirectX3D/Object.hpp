@@ -1,8 +1,8 @@
 #pragma once
 
 #include <vector>
-#include "GameEngineDevice.h"
-#include "GameEngineMath.h"
+#include "FGraphicDevice.h"
+#include <EngineBase/FMath.h>
 
 struct CustomVertex
 {
@@ -32,7 +32,7 @@ public:
 		inputLayout_->Release();
 	}
 
-	void Init(GameEngineDevice* _device)
+	void Init(FGraphicDevice* _device)
 	{
 		if (vertexBuffer_ != nullptr)
 		{
@@ -87,7 +87,7 @@ typedef struct D3D11_INPUT_ELEMENT_DESC {
 
 
 	}
-	void Draw(GameEngineDevice* _device)
+	void Draw(FGraphicDevice* _device)
 	{
 		ID3D11DeviceContext* context = _device->GetContext();
 

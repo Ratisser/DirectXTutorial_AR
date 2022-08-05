@@ -8,7 +8,7 @@
 // 마소에서 제공하는 simd 연산용 함수들을 사용할수 있다.
 #include <DirectXPackedVector.h>
 
-class GameEngineMath
+class FMath
 {
 public:
 	static const float PI;
@@ -138,25 +138,25 @@ public:
 
 	static float4 RotateYDegree(const float4& _OriginVector, float _Degree)
 	{
-		return RotateYRadian(_OriginVector, _Degree * GameEngineMath::DegreeToRadian);
+		return RotateYRadian(_OriginVector, _Degree * FMath::DegreeToRadian);
 	}
 	static float4 RotateYRadian(const float4& _OriginVector, float _Radian);
 
 	static float4 RotateXDegree(const float4& _OriginVector, float _Degree)
 	{
-		return RotateXRadian(_OriginVector, _Degree * GameEngineMath::DegreeToRadian);
+		return RotateXRadian(_OriginVector, _Degree * FMath::DegreeToRadian);
 	}
 	static float4 RotateXRadian(const float4& _OriginVector, float _Radian);
 
 	static float4 RotateZDegree(const float4& _OriginVector, float _Degree)
 	{
-		return RotateZRadian(_OriginVector, _Degree * GameEngineMath::DegreeToRadian);
+		return RotateZRadian(_OriginVector, _Degree * FMath::DegreeToRadian);
 	}
 	static float4 RotateZRadian(const float4& _OriginVector, float _Radian);
 
 	static float4 DirZDegree(float _Degree)
 	{
-		return DirZRadian(_Degree * GameEngineMath::DegreeToRadian);
+		return DirZRadian(_Degree * FMath::DegreeToRadian);
 	}
 
 	// 0도 {1, 0} 일때의 벡터를 회전시키는 공식인겁니다.
@@ -389,7 +389,7 @@ public:
 
 	float4 ToRadianAngle() const
 	{
-		return this->operator*(GameEngineMath::DegreeToRadian);
+		return this->operator*(FMath::DegreeToRadian);
 	}
 
 	float4 ToDegreeQuaternion() const
@@ -670,22 +670,22 @@ public: // 위치변환 행렬
 public: // 회전변환 행렬
 	void RotationDeg(const float4& _Value)
 	{
-		RotationRad(_Value * GameEngineMath::DegreeToRadian);
+		RotationRad(_Value * FMath::DegreeToRadian);
 	}
 
 	void RotationXDeg(const float& _Value)
 	{
-		RotationXRad(_Value * GameEngineMath::DegreeToRadian);
+		RotationXRad(_Value * FMath::DegreeToRadian);
 	}
 
 	void RotationYDeg(const float& _Value)
 	{
-		RotationYRad(_Value * GameEngineMath::DegreeToRadian);
+		RotationYRad(_Value * FMath::DegreeToRadian);
 	}
 
 	void RotationZDeg(const float& _Value)
 	{
-		RotationZRad(_Value * GameEngineMath::DegreeToRadian);
+		RotationZRad(_Value * FMath::DegreeToRadian);
 	}
 
 	void RotationRad(const float4& _Value)
@@ -751,7 +751,7 @@ public: // 투영행렬
 	void PerspectiveFovLH(float _FovAngleY, float _Width, float _Height, float _NearZ, float _FarZ)
 	{
 		// 거의 대부분의 수학공식은 라디안을 기준으로 하기때문에 360분법으로 인자를 받아와 라디안으로 변환해야한다.
-		PerspectiveFovLH(_FovAngleY * GameEngineMath::DegreeToRadian, _Width / _Height, _NearZ, _FarZ);
+		PerspectiveFovLH(_FovAngleY * FMath::DegreeToRadian, _Width / _Height, _NearZ, _FarZ);
 	}
 
 	void PerspectiveFovLH(float _FovAngleY, float _AspectRatio, float _Near, float _Far)
