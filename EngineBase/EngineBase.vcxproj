@@ -20,6 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FDebug.cpp" />
+    <ClCompile Include="FFileSystem.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="FState.cpp" />
     <ClCompile Include="FRandom.cpp" />
     <ClCompile Include="FSoundManager.cpp" />
@@ -35,6 +39,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FDebug.h" />
+    <ClInclude Include="FFileSystem.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="FState.h" />
     <ClInclude Include="FRandom.h" />
     <ClInclude Include="FSoundManager.h" />
@@ -158,6 +166,7 @@
       <PrecompiledHeaderFile>PreCompile.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>D:\repos\DirectXTutorial_AR;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

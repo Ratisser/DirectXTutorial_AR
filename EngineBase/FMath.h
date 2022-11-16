@@ -159,12 +159,10 @@ public:
 		return DirZRadian(_Degree * FMath::DegreeToRadian);
 	}
 
-	// 0도 {1, 0} 일때의 벡터를 회전시키는 공식인겁니다.
+	// 0도 {1, 0} 일때의 벡터를 회전시키는 공식
 	static float4 DirZRadian(float _Radian);
 
 public:
-	// unnamed union을 선언하면 
-	// 내부의 메모리를 구조를 union 방식으로 구성해준다.
 	union
 	{
 		struct
@@ -437,9 +435,6 @@ public:
 	{
 	}
 
-	// 디폴트 파라미터
-	// 가장 우측에 있는 인자에 상수값을 넣어서
-	// 만약 인자를 넣어주지 않았을때는 
 	float4(float _x, float _y, float _z, float _w = 1.0f)
 		: x(_x), y(_y), z(_z), w(_w)
 	{

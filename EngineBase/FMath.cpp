@@ -44,7 +44,9 @@ float4 float4::RotateZRadian(const float4& _OriginVector, float _Radian)
 	return _OriginVector * Rot;
 }
 
-float4 float4::DirZRadian(float _Radian)
+// 0도 {1, 0} 일때의 벡터를 회전시키는 공식
+
+inline float4 float4::DirZRadian(float _Radian)
 {
 	float4x4 Rot;
 	Rot.RotationZRad(_Radian);

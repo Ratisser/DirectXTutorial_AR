@@ -28,6 +28,9 @@
     <ClCompile Include="FMath.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="FFileSystem.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FDebug.h">
@@ -50,6 +53,9 @@
     </ClInclude>
     <ClInclude Include="PreCompile.h" />
     <ClInclude Include="FMath.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="FFileSystem.h">
       <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>
