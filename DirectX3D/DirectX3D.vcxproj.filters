@@ -24,6 +24,9 @@
     <ClCompile Include="FEngineWindow.cpp">
       <Filter>01.Engine\00.Core</Filter>
     </ClCompile>
+    <ClCompile Include="FShader.cpp">
+      <Filter>01.Engine\01.Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macro.h" />
@@ -48,6 +51,9 @@
     </ClInclude>
     <ClInclude Include="FEngineWindow.h">
       <Filter>01.Engine\00.Core</Filter>
+    </ClInclude>
+    <ClInclude Include="FShader.h">
+      <Filter>01.Engine\01.Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -135,6 +135,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FShader.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="UActor.cpp">
       <SubType>
       </SubType>
@@ -158,6 +162,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FShader.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="UActor.h">
       <SubType>
       </SubType>
