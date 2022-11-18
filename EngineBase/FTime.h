@@ -16,8 +16,8 @@ public:
 	static FTime& GetInstance() { static FTime SingletonInstance; return SingletonInstance; }
 
 public:
-	double GetDeltaTimeD() { return deltaTime_; }
-	float GetDeltaTime() { return static_cast<float>(deltaTime_) * timeScale_; }
+	double GetDeltaTimeD() { return mDeltaTime; }
+	float GetDeltaTime() { return static_cast<float>(mDeltaTime) * mTimeScale; }
 
 public:
 	void TimeCheckReset();
@@ -25,10 +25,10 @@ public:
 	void SetTimeScale(float _scale);
 
 private:
-	LARGE_INTEGER timeCount_;
-	LARGE_INTEGER startCheck_;
-	LARGE_INTEGER endCheck_;
-	double deltaTime_;
-	float timeScale_;
+	LARGE_INTEGER mTimeCount;
+	LARGE_INTEGER mStartCheck;
+	LARGE_INTEGER mEndCheck;
+	double mDeltaTime;
+	float mTimeScale;
 };
 

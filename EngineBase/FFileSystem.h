@@ -15,12 +15,12 @@ public:
 	FFileSystem& operator=(const FFileSystem&& _other) = delete;
 
 public:
-	std::string GetDirectoryName() { return path_.has_parent_path() ? path_.parent_path().string() : path_.string(); };
-	std::string GetFileName() { return path_.has_filename() ? path_.filename().string() : ""; }
+	std::string GetDirectoryName() { return mPath.has_parent_path() ? mPath.parent_path().string() : mPath.string(); };
+	std::string GetFileName() { return mPath.has_filename() ? mPath.filename().string() : ""; }
 
 	bool MoveToParent(const std::string& _parentName);
 
 private:
-	std::filesystem::path path_;
+	std::filesystem::path mPath;
 };
 

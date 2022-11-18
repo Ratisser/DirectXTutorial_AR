@@ -11,12 +11,12 @@ class FState
 	public:
 		State(const std::string& _stateName, std::function<void(float)> _start, std::function<void(float)> _update, std::function<void(float)> _end = nullptr);
 	private:
-		std::string stateName_;
-		std::function<void(float)> start_;
-		std::function<void(float)> update_;
-		std::function<void(float)> end_;
+		std::string mStateName;
+		std::function<void(float)> mStartFunction;
+		std::function<void(float)> mUpdateFunction;
+		std::function<void(float)> mEndFunction;
 
-		float elapsedTime_;
+		float mElapsedTime;
 	};
 
 public:
@@ -42,9 +42,9 @@ public:
 	void SetTime(float _time);
 
 private:
-	std::map<std::string, FState::State*> allState_;
+	std::map<std::string, FState::State*> mAllStates;
 
-	State* currentState_;
-	State* nextState_;
+	State* mCurrentState;
+	State* mNextState;
 };
 

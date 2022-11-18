@@ -4,6 +4,9 @@
     <Filter Include="Source">
       <UniqueIdentifier>{f8b41e59-1388-4cb2-a1cc-ff2e8e604923}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PCH">
+      <UniqueIdentifier>{f20ecb6e-cdbe-47b7-9ae4-ebbcf92dbb10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FDebug.cpp">
@@ -24,12 +27,14 @@
     <ClCompile Include="FTime.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="PreCompile.cpp" />
     <ClCompile Include="FMath.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="FFileSystem.cpp">
       <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PreCompile.cpp">
+      <Filter>PCH</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -51,12 +56,14 @@
     <ClInclude Include="FTime.h">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="PreCompile.h" />
     <ClInclude Include="FMath.h">
       <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="FFileSystem.h">
       <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="PreCompile.h">
+      <Filter>PCH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

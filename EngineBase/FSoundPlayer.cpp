@@ -2,11 +2,11 @@
 #include "FSoundPlayer.h"
 
 FSoundPlayer::FSoundPlayer(const std::string& _soundName)
-	: sound_(nullptr)
-	, channel_(nullptr)
-	, volume_(1.0f)
+	: mSound(nullptr)
+	, mChannel(nullptr)
+	, mVolume(1.0f)
 {
-	sound_ = FSoundManager::GetInstance().getSound(_soundName);
+	mSound = FSoundManager::GetInstance().getSound(_soundName);
 }
 
 FSoundPlayer::~FSoundPlayer()
@@ -15,83 +15,83 @@ FSoundPlayer::~FSoundPlayer()
 
 void FSoundPlayer::ChangeSound(const std::string& _soundName)
 {
-	sound_ = FSoundManager::GetInstance().getSound(_soundName);
+	mSound = FSoundManager::GetInstance().getSound(_soundName);
 }
 
 void FSoundPlayer::Play()
 {
-	FSoundManager::GetInstance().system_->playSound(sound_, nullptr, false, &channel_);
-	if (channel_ != nullptr)
+	FSoundManager::GetInstance().mSystem->playSound(mSound, nullptr, false, &mChannel);
+	if (mChannel != nullptr)
 	{
-		FMOD_RESULT result = channel_->setVolume(FSoundManager::globalVolume_ * volume_);
+		FMOD_RESULT result = mChannel->setVolume(FSoundManager::mGlobalVolume * mVolume);
 	}
 }
 
 void FSoundPlayer::Stop()
 {
-	FMOD_RESULT result = channel_->stop();
+	FMOD_RESULT result = mChannel->stop();
 }
 
 bool FSoundPlayer::IsPlaying()
 {
 	bool bReturn;
-	FMOD_RESULT result = channel_->isPlaying(&bReturn);
+	FMOD_RESULT result = mChannel->isPlaying(&bReturn);
 	return bReturn;
 }
 
 bool FSoundPlayer::IsPaused()
 {
 	bool bReturn = true;
-	if (channel_ != nullptr)
+	if (mChannel != nullptr)
 	{
-		FMOD_RESULT result = channel_->getPaused(&bReturn);
+		FMOD_RESULT result = mChannel->getPaused(&bReturn);
 	}
 	return bReturn;
 }
 
 void FSoundPlayer::SetPaused(bool _bPause)
 {
-	if (channel_ != nullptr)
+	if (mChannel != nullptr)
 	{
-		FMOD_RESULT result = channel_->setPaused(_bPause);
+		FMOD_RESULT result = mChannel->setPaused(_bPause);
 	}
 }
 
 void FSoundPlayer::SetVolume(float _volume)
 {
-	volume_ = _volume;
-	if (channel_ != nullptr)
+	mVolume = _volume;
+	if (mChannel != nullptr)
 	{
-		FMOD_RESULT result = channel_->setVolume(FSoundManager::globalVolume_ * volume_);
+		FMOD_RESULT result = mChannel->setVolume(FSoundManager::mGlobalVolume * mVolume);
 	}
 }
 
 void FSoundPlayer::SetPitch(float _pitch)
 {
-	if (channel_ != nullptr)
+	if (mChannel != nullptr)
 	{
-		FMOD_RESULT result = channel_->setPitch(_pitch);
+		FMOD_RESULT result = mChannel->setPitch(_pitch);
 	}
 }
 
 void FSoundPlayer::SetPosition(unsigned int _positionMilliSec)
 {
-	if (channel_ != nullptr)
+	if (mChannel != nullptr)
 	{
-		FMOD_RESULT result = channel_->setPosition(_positionMilliSec, FMOD_TIMEUNIT_MS);
+		FMOD_RESULT result = mChannel->setPosition(_positionMilliSec, FMOD_TIMEUNIT_MS);
 	}
 }
 
 unsigned int FSoundPlayer::GetPositionMillisecond()
 {
 	unsigned int returnPosition;
-	FMOD_RESULT result = channel_->getPosition(&returnPosition, FMOD_TIMEUNIT_MS);
+	FMOD_RESULT result = mChannel->getPosition(&returnPosition, FMOD_TIMEUNIT_MS);
 	return returnPosition;
 }
 
 unsigned int FSoundPlayer::GetLengthMillisecond()
 {
 	unsigned int returnLength;
-	FMOD_RESULT result = sound_->getLength(&returnLength, FMOD_TIMEUNIT_MS);
+	FMOD_RESULT result = mSound->getLength(&returnLength, FMOD_TIMEUNIT_MS);
 	return returnLength;
 }

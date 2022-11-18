@@ -30,7 +30,7 @@ public:
 	FSoundManager& operator=(const FSoundManager&& _other) = delete;
 
 public:
-	static FSoundManager& GetInstance() { return *instance_; }
+	static FSoundManager& GetInstance() { return *mInstance; }
 	static void Destroy();
 
 	void Initialize();
@@ -42,7 +42,7 @@ public:
 	void SetGlobalVolume(float _volume);
 	void StopSound();
 
-	float GetGlobalVolume() const { return globalVolume_; }
+	float GetGlobalVolume() const { return mGlobalVolume; }
 
 private:
 	FSoundManager();
@@ -50,13 +50,13 @@ private:
 	FMOD::Sound* getSound(const std::string& _name);
 
 private:
-	static FSoundManager* instance_;
-	static float globalVolume_;
+	static FSoundManager* mInstance;
+	static float mGlobalVolume;
 
 private:
-	FMOD::System* system_;
-	FMOD::Channel* channel_;
+	FMOD::System* mSystem;
+	FMOD::Channel* mChannel;
 
-	std::unordered_map<std::string, FMOD::Sound*> allSounds_;
+	std::unordered_map<std::string, FMOD::Sound*> mAllSounds;
 };
 
